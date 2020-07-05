@@ -1,0 +1,14 @@
+{
+    "name": "Entorno PHP",
+    "dockerComposeFile": "./docker-compose.yaml",
+    "service": "app",
+    "workspaceFolder": "/app",
+    "shutdownAction": "stopCompose",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "esbenp.prettier-vscode",
+        "yummygum.city-lights-icon-vsc"
+    ]
+}

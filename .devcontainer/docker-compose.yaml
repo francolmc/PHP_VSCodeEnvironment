@@ -1,0 +1,35 @@
+version: '3.7'
+services: 
+    app:
+        container_name: entornophp_app
+        build: .
+        restart: always
+        ports: 
+            - 8000:8000
+        volumes: 
+            - ../app:/app
+        depends_on: 
+            - mysql
+        tty: true
+    phpmyadmin:
+        container_name: entornophp_phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        depends_on:
+            - mysql
+        restart: always
+        ports:
+            - '8080:80'
+        environment:
+            PMA_HOST: mysql
+            MYSQL_ROOT_PASSWORD: M4st3rdb4
+    mysql:
+        container_name: entornophp_mysql
+        image: mysql:5.7
+        restart: always
+        volumes: 
+            - ../data:/var/lib/mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: M4st3rdb4
+            MYSQL_DATABASE: work_db
+            MYSQL_USER: work_user
+            MYSQL_PASSWORD: .s3cr3t0.
